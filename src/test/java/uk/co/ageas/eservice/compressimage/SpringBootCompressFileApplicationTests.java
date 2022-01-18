@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootUploadMultipleFilesApplicationTests {
+class SpringBootCompressFileApplicationTests {
 
 	@Test
 	void contextLoads() {

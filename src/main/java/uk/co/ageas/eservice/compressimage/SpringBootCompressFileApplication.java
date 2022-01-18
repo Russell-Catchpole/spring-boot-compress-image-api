@@ -9,12 +9,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import uk.co.ageas.eservice.compressimage.service.FilesStorageService;
 
 @SpringBootApplication
-public class SpringBootUploadMultipleFilesApplication implements CommandLineRunner {
+public class SpringBootCompressFileApplication implements CommandLineRunner {
   @Resource
   FilesStorageService storageService;
 
   public static void main(String[] args) {
-    SpringApplication.run(SpringBootUploadMultipleFilesApplication.class, args);
+    SpringApplication.run(SpringBootCompressFileApplication.class, args);
   }
 
   @Override
