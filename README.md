@@ -1,7 +1,6 @@
-# Spring Boot upload Multiple Files example - Multipart File
+# Spring Boot compress image API
 
-For more detail, please visit:
-> [Spring Boot Multiple Files upload example](https://bezkoder.com/spring-boot-upload-multiple-files/)
+
 
 ## Run Spring Boot application
 ```
