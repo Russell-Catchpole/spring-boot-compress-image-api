@@ -14,9 +14,6 @@ import uk.co.ageas.eservice.compressimage.service.FilesStorageService;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Controller
@@ -27,41 +24,34 @@ public class FilesController {
     FilesStorageService storageService;
 
     @PostMapping("/compress")
-    public ResponseEntity<Resource> uploadFiles(@RequestParam("files") MultipartFile[] files)
-    throws IOException {
-      String message = "";
-      AtomicReference<File> compressedImage = new AtomicReference<>(new File(" "));
+    public ResponseEntity<Resource> uploadFiles(@RequestParam("files") MultipartFile file)
+            throws IOException {
+        String message = "";
+        AtomicReference<File> compressedImage = new AtomicReference<>(new File(" "));
 
-      try {
-        List<String> fileNames = new ArrayList<>();
+        try {
+            storageService.save(file);
+            try {
+                File originalImage = new File("./uploads/" + file.getOriginalFilename());
 
-        Arrays.asList(files).stream().forEach(file -> {
-          storageService.save(file);
-          try {
-            File originalImage = new File("./uploads/" + file.getOriginalFilename());
+                Compressor compressor = new Compressor();
+                compressedImage.set(compressor.compressImage(originalImage));
+                String fileName = compressedImage.get().getName();
 
-            Compressor compressor = new Compressor();
-            compressedImage.set(compressor.compressImage(originalImage));
-            String fileName = compressedImage.get().getName();
+                System.out.println("Image compressed!");
 
-            System.out.println("Image compressed!");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-          } catch (IOException e) {
+            Resource responseFile = storageService.load(compressedImage.get().getName());
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION,
+                            "attachment; filename=\"" + responseFile.getFilename() + "\"").body(responseFile);
+        } catch (Exception e) {
             e.printStackTrace();
-          }
-
-          fileNames.add(file.getOriginalFilename());
-        });
-
-//      message = "Compressed the file successfully: " + fileNames;
-        Resource responseFile = storageService.load(compressedImage.get().getName());
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION,
-                        "attachment; filename=\"" + responseFile.getFilename() + "\"").body(responseFile);
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-      return ResponseEntity.unprocessableEntity()
-              .header(HttpHeaders.CONTENT_DISPOSITION).body(null);
+        }
+        return ResponseEntity.unprocessableEntity()
+                .header(HttpHeaders.CONTENT_DISPOSITION).body(null);
     }
 }
