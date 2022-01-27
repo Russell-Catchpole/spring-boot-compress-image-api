@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Controller
-@CrossOrigin("http://localhost:8081")
+@CrossOrigin("http://localhost:3000")
 public class FilesController {
 
     @Autowired
