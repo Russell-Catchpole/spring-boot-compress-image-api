@@ -1,4 +1,4 @@
-package uk.co.ageas.eservice.compressimage.compressor;
+package uk.net.catchpoler.image_compress.compressimage.compressor;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -11,7 +11,8 @@ import javax.imageio.stream.ImageOutputStream;
 
 public class Compressor {
 
-    private final Path root = Paths.get("uploads");
+//    private final Path root = Paths.get("uploads");
+    private final Path root = Paths.get("/");
 
     public File compressImage(File inputImage) throws IOException {
 

@@ -1,4 +1,4 @@
-package uk.co.ageas.eservice.compressimage.service;
+package uk.net.catchpoler.image_compress.compressimage.service;
 
 import java.nio.file.Path;
 import java.util.stream.Stream;

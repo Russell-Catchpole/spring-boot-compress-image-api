@@ -1,9 +1,9 @@
-package uk.co.ageas.eservice.compressimage.exception;
+package uk.net.catchpoler.image_compress.compressimage.exception;
 
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import uk.co.ageas.eservice.compressimage.message.ResponseMessage;
+import uk.net.catchpoler.image_compress.compressimage.message.ResponseMessage;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package uk.co.ageas.eservice.compressimage.model;
+package uk.net.catchpoler.image_compress.compressimage.model;
 
 public class FileInfo {
   private String name;

@@ -1,9 +1,9 @@
-package uk.co.ageas.eservice.compressimage;
+package uk.net.catchpoler.image_compress.compressimage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import uk.co.ageas.eservice.compressimage.service.FilesStorageService;
+import uk.net.catchpoler.image_compress.compressimage.service.FilesStorageService;
 
 import javax.annotation.Resource;
 

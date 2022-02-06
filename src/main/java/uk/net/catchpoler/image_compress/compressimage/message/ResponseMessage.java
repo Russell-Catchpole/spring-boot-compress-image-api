@@ -1,4 +1,4 @@
-package uk.co.ageas.eservice.compressimage.message;
+package uk.net.catchpoler.image_compress.compressimage.message;
 
 public class ResponseMessage {
   private String message;

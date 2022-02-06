@@ -1,4 +1,4 @@
-package uk.co.ageas.eservice.compressimage.compressor;
+package uk.net.catchpoler.image_compress.compressimage.compressor;
     import java.io.*;
         import java.util.*;
         import java.awt.image.*;
