@@ -8,7 +8,7 @@
 		<version>2.2.7.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>co.uk.ageas.eservice.compressimage</groupId>
+	<groupId>uk.net.catchpoler.image_compress</groupId>
 	<artifactId>spring-boot-upload-multiple-files</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
