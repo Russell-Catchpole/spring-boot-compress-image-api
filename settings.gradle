@@ -1,0 +1,11 @@
+pluginManagement {
+    repositories {
+        maven {
+            name "Ageas Nexus"
+            url "http://finnexus01.fortis-uk.fortis.com:8081/repository/maven-public/"
+            allowInsecureProtocol = true
+        }
+    }
+}
+
+rootProject.name = 'spring-boot-compress-image-api'
