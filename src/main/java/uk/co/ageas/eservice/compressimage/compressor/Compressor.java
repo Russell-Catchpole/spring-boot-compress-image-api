@@ -1,5 +1,5 @@
 package uk.co.ageas.eservice.compressimage.compressor;
-
+// Dummy change to test commit & push to GOGs
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
