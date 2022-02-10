@@ -14,7 +14,7 @@ public class Compressor {
 //    private final Path root = Paths.get("uploads");
     private final Path root = Paths.get("/");
 
-    public File compressImage(File inputImage) throws IOException {
+    public File compressImage(File inputImage, String quality) throws IOException {
 
         //File input = new File("digital_image_processing.jpg");
         System.out.println("inputImage" + inputImage.toString() );
@@ -44,9 +44,11 @@ public class Compressor {
         writer.setOutput(ios);
 
         ImageWriteParam param = writer.getDefaultWriteParam();
-
+        // Convert quality parameter with value 1 - 100 to compresisonQuality value 0 - 1f.
+        float compressionQuality = Float.parseFloat(quality) / 100;
+        System.out.println("CompressionQuality =" + compressionQuality);
         param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
-        param.setCompressionQuality(0.3f);
+        param.setCompressionQuality(compressionQuality);
         writer.write(null, new IIOImage(image, null, null), param);
 
         os.close();

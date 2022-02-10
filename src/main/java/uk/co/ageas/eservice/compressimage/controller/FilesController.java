@@ -17,16 +17,20 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Controller
-//@CrossOrigin("http://localhost:3000")
-@CrossOrigin("http://server2:8027")  // CATCH#RSVR
+        // Permit origins from server2 CATCH#RSVR (port 8027) and React running local for testing
+@CrossOrigin("http://localhost:3000")
+//@CrossOrigin("http://server2:8027")  // CATCH#RSVR
 public class FilesController {
 
     @Autowired
     FilesStorageService storageService;
 
     @PostMapping("/compress")
-    public ResponseEntity<Resource> uploadFiles(@RequestParam("files") MultipartFile file)
-            throws IOException {
+//    public ResponseEntity<Resource> uploadFiles(@RequestParam("files") MultipartFile file)
+    public ResponseEntity<Resource> uploadFiles(@RequestParam("files") MultipartFile file,
+                @RequestParam(defaultValue = ".3") String quality )
+
+    throws IOException {
         String message = "";
         AtomicReference<File> compressedImage = new AtomicReference<>(new File(" "));
 
@@ -34,9 +38,10 @@ public class FilesController {
             storageService.save(file);
             try {
 //                File originalImage = new File("./uploads/" + file.getOriginalFilename());
+                System.out.println("Quality:" + quality.toString());
                 File originalImage = new File(file.getOriginalFilename());
                 Compressor compressor = new Compressor();
-                compressedImage.set(compressor.compressImage(originalImage));
+                compressedImage.set(compressor.compressImage(originalImage, quality));
                 String fileName = compressedImage.get().getName();
 
                 System.out.println("Image compressed!");
