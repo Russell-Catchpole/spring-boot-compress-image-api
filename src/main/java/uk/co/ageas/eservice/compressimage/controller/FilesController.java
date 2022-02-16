@@ -18,8 +18,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 @Controller
         // Permit origins from server2 CATCH#RSVR (port 8027) and React running local for testing
-@CrossOrigin("http://localhost:3000")
-//@CrossOrigin("http://server2:8027")  // CATCH#RSVR
+//@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://server2:8027")  // CATCH#RSVR
 public class FilesController {
 
     @Autowired
