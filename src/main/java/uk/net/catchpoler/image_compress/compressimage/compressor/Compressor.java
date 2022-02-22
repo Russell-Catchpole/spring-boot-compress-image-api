@@ -16,9 +16,9 @@ public class Compressor {
 
     public File compressImage(File inputImage) throws IOException {
 
-        //File input = new File("digital_image_processing.jpg");
-        System.out.println("inputImage" + inputImage.toString() );
         BufferedImage image = ImageIO.read(inputImage);
+
+        System.out.println(image);
 
         System.out.println(this.root.resolve(inputImage.toString()));
 

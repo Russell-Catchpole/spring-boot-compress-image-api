@@ -45,6 +45,11 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<resources>
+		<resource>
+			<directory>russellcatchpole@Russells-Mac-mini spring-boot-compress-image-api/ </directory>
+		</resource>
+		</resources>
 	</build>
 
 </project>

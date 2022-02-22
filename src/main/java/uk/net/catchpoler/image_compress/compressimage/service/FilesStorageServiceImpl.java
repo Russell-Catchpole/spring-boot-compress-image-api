@@ -30,6 +30,10 @@ public class FilesStorageServiceImpl implements FilesStorageService {
   @Override
   public void save(MultipartFile file) {
     try {
+      Files.delete(this.root.resolve(file.getOriginalFilename()));
+    } catch (Exception e) {}
+
+    try {
       Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
     } catch (Exception e) {
       throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
