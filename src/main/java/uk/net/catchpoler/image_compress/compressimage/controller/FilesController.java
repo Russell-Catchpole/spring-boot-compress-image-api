@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Controller
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("*")
 //@CrossOrigin("http://server2:8027")  // CATCH#RSVR
 public class FilesController {
 
